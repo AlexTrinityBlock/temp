@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<!-- 節省時間一切從簡 -->
+<head>
+    <meta charset="utf-8">
+</head>
+
+<!-- css　簡單設置留言為灰色-->
+<style>
+    div {
+        color: white;
+        background-color: gray;
+        margin: 10px 0px;
+        width: 80%;
+    }
+</style>
+
+<body>
+    <!-- Javascript會呼叫這個標籤，將圖片的數量寫入此處 -->
+    <h1 id="find-number-of-comment"></h1>
+
+    <!-- 留言 -->
+    <div>
+        <img src="./human.png" width="40" height="40">
+        留言1:天氣真好
+    </div>
+
+    <div>
+        <img src="./human.png" width="40" height="40">
+        留言2:冰淇淋很棒
+    </div>
+
+    <div>
+        <img src="./human.png" width="40" height="40">
+        留言3:春天容易花粉過敏
+    </div>
+
+</body>
+<script>
+    var imageNumber = 0//圖片的數量
+    var images = document.getElementsByTagName("img");//取得所有img標籤的
+
+    //圖片數量有多少就運作幾次，i會逐次增加，i從0~2
+    for (i = 0; i < images.length; i++) {
+        var singleImage = images[i]//從眾多圖片的array中取得，單一的照片物件
+
+        if (singleImage.width == 40 && singleImage.height == 40) {//假如單一張照片的長寬都是40px，就加入數量
+            imageNumber += 1
+        }
+    }
+
+    //將文字與圖片數量寫到id="find-number-of-comment"的HTML標籤中
+    document.getElementById("find-number-of-comment").innerHTML = "圖片的數量有" + imageNumber
+</script>
